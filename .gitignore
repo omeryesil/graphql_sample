@@ -15,3 +15,6 @@ sqlserverdata/
 **/sqlserverdata/
 postgresdata/
 **/postgresdata/
+
+**/appsettings.Development.json
+

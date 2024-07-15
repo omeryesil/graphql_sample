@@ -1,11 +1,17 @@
-**/bin/
-**/obj/
-**/.vscode/
-
+# Ignore bin and obj directories
 bin/
 obj/
-.vscode
 
+# Ignore directories recursively
+**/bin/
+**/obj/
 
+# Ignore Visual Studio Code settings
+.vscode/
+**/.vscode/
+
+# Ignore specific data directories
+sqlserverdata/
 **/sqlserverdata/
-
+postgresdata/
+**/postgresdata/

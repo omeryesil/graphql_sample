@@ -2,5 +2,10 @@
 **/obj/
 **/.vscode/
 
+bin/
+obj/
+.vscode
+
+
 **/sqlserverdata/
 

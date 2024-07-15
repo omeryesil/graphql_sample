@@ -170,7 +170,8 @@
           }
         },
         "build": {
-          "build/_._": {}
+          "build/HotChocolate.Data.props": {},
+          "build/HotChocolate.Data.targets": {}
         }
       },
       "HotChocolate.Data.EntityFramework/13.9.7": {
@@ -5958,6 +5959,7 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "HotChocolate.AspNetCore >= 13.9.7",
+      "HotChocolate.Data >= 13.9.7",
       "HotChocolate.Data.EntityFramework >= 13.9.7",
       "Microsoft.AspNetCore.OpenApi >= 8.0.0",
       "Microsoft.EntityFrameworkCore >= 8.0.7",
@@ -6006,6 +6008,10 @@
         "targetAlias": "net8.0",
         "dependencies": {
           "HotChocolate.AspNetCore": {
+            "target": "Package",
+            "version": "[13.9.7, )"
+          },
+          "HotChocolate.Data": {
             "target": "Package",
             "version": "[13.9.7, )"
           },

@@ -1,16 +1,24 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using HotChocolate;
+using HotChocolate.Data;
+using Microsoft.EntityFrameworkCore;
 using SampleGraphQL.Models;
 
 namespace SampleGraphQL.GraphQL;
 
 public class Query
 {
-    public IQueryable<MenuItem> GetMenuItems([Service] IDbContextFactory<RestaurantDbContext> dbContextFactory)
+    private readonly IDbContextFactory<RestaurantDbContext> _dbContextFactory;
+
+    public Query(IDbContextFactory<RestaurantDbContext> dbContextFactory)
     {
-        var context = dbContextFactory.CreateDbContext();
-        return context.MenuItems;
+        _dbContextFactory = dbContextFactory;
     }
 
-    // Define other queries
+    [UseFiltering]
+    [UseSorting]
+    public IQueryable<Customer> GetCustomers()
+    {
+        var context = _dbContextFactory.CreateDbContext();
+        return context.Customers;
+    }
 }
-

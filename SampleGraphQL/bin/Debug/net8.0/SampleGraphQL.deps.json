@@ -9,6 +9,7 @@
       "SampleGraphQL/1.0.0": {
         "dependencies": {
           "HotChocolate.AspNetCore": "13.9.7",
+          "HotChocolate.Data": "13.9.7",
           "HotChocolate.Data.EntityFramework": "13.9.7",
           "Microsoft.AspNetCore.OpenApi": "8.0.0",
           "Microsoft.EntityFrameworkCore": "8.0.7",

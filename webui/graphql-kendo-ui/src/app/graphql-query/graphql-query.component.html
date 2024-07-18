@@ -1,0 +1,11 @@
+<!-- src/app/graphql-query/graphql-query.component.html -->
+
+<div>
+  <textarea [(ngModel)]="query" rows="5" cols="60" placeholder="Enter your GraphQL query"></textarea>
+  <button (click)="executeQuery()">Execute</button>
+</div>
+
+<kendo-grid [kendoGridBinding]="data" [resizable]="true" [reorderable]="true">
+  <kendo-grid-column *ngFor="let column of columns" [field]="column" [title]="column" [filterable]="true">
+  </kendo-grid-column>
+</kendo-grid>

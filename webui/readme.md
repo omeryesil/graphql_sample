@@ -6,15 +6,18 @@ Open WebUI, enter graphQL query and execute. GraphQL response will be populated 
 
 1. Install Angular CLI (if not already installed):
 
+Install NodeJs: https://nodejs.org/en/download/prebuilt-installer
+
 ```bash
-npm install -g @angular/cli
+
+npm install -g angular-cli --verbose
 ```
 
 2. Create a New Angular Project:
 
 ```bash
-ng new graphql-kendo-ui
-cd graphql-kendo-ui
+ng new graphql-webui --no-standalone
+cd graphql-webui
 ```
 
 3. Install Dependencies:
@@ -22,9 +25,12 @@ cd graphql-kendo-ui
 Install Apollo Client for GraphQL and Kendo UI for Angular.
 
 ```bash
-npm install @apollo/client graphql
-npm install @progress/kendo-angular-grid @progress/kendo-angular-inputs @progress/kendo-theme-default
-npm install @angular/animations @angular/forms
+ng add @apollo/client graphql
+ng add @progress/kendo-angular-grid
+ng add @progress/kendo-angular-inputs
+ng add @progress/kendo-theme-default
+ng add @angular/animations
+ng add @angular/forms
 ```
 
 3. Add Kendo UI Styles:
@@ -155,4 +161,14 @@ ng serve
 
 Access the Application:
 Open http://localhost:4200 in your web browser.
+
+## APPENDIX
+
+Cleanup nvm
+
+rm -rf /Users/omeryesil/.nvm/versions/node/v22.5.0/lib/node_modules/@angular/cli
+npm cache clean --force
+
+
+
 

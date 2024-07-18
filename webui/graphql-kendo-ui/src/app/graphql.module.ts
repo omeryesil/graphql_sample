@@ -6,7 +6,7 @@ import { InMemoryCache } from '@apollo/client/core';
 
 export function createApollo(httpLink: HttpLink) {
   return {
-    link: httpLink.create({ uri: 'http://localhost:234/graphql' }), // Replace with your GraphQL endpoint
+    link: httpLink.create({ uri: 'http://localhost:5246/graphql' }), // Replace with your GraphQL endpoint
     cache: new InMemoryCache(),
   };
 }

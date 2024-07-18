@@ -10,7 +10,7 @@ import gql from 'graphql-tag';
   styleUrls: ['./graphql-query.component.css']
 })
 export class GraphqlQueryComponent {
-  query: string = '';
+  query: string = 'query: PurchaseOrderHeaders { }';
   data: any[] = [];
   columns: string[] = [];
 

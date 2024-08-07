@@ -2,14 +2,20 @@
 
 <h2>Query Editor</h2>
 <div>
-  <textarea [(ngModel)]="query" rows="5" cols="60" placeholder="Enter your GraphQL query">
-  </textarea><br/>
-  <button (click)="executeQuery()">Execute</button>
+  Pre-defined Queries
+  <select (change)="onQuerySelect($event)">
+    <option *ngFor="let q of queries" [value]="q.query">{{ q.name }}</option>
+  </select>
 </div>
 
 <div>
-  <textarea [(ngModel)]="statusMessage" [ngStyle]="{ 'color': statusColor}" rows="2" cols="60" readonly>
-  </textarea><br/>
+  <textarea [(ngModel)]="query" rows="10" cols="60" placeholder="Enter your GraphQL query"></textarea>
+  
+</div>
+
+<div>
+  <button (click)="executeQuery()">Execute</button>
+  <input [ngStyle]="{ 'color': statusColor, 'border':'none' }" [value]="statusMessage" readonly>
 </div>
 
 <h2>Grid</h2>

@@ -1,6 +1,13 @@
+// src/app/graphql-query/graphql-query.component.ts
+
 import { Component } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
+
+interface QueryOption {
+  name: string;
+  query: string;
+}
 
 @Component({
   selector: 'app-graphql-query',
@@ -17,6 +24,59 @@ export class GraphqlQueryComponent {
   skip = 0;
   statusMessage: string = '';
   statusColor: string = '';
+
+  queries: QueryOption[] = [
+    {
+      name: '-- select query ',
+      query: ``
+    },
+    {
+      name: 'Purchase Orders - Omer',
+      query: `
+        query($first: Int, $after: String) {
+          purchaseOrderHeaders(first: $first, after: $after) {
+            nodes {
+              pohdrPonumber
+              pohdrInvSiteCode
+              pohdrInvoiceNumber
+              pohdrSupplierCode
+              pohdrApprovalStatus
+              pohdrDate
+              pohdrDateClosed
+              pohdrType
+              # pohdrTotal
+            }
+            pageInfo {
+              hasNextPage
+              hasPreviousPage
+              startCursor
+              endCursor
+            }
+          }
+        }
+      `
+    },
+    {
+      name: 'Purchase Orders - Omer 2',
+      query: `
+        query($first: Int, $after: String) {
+          purchaseOrderHeaders(first: $first, after: $after) {
+            nodes {
+              pohdrPonumber
+              pohdrInvSiteCode
+              pohdrType
+            }
+            pageInfo {
+              hasNextPage
+              hasPreviousPage
+              startCursor
+              endCursor
+            }
+          }
+        }
+      `
+    },
+  ];
 
   constructor(private apollo: Apollo) {}
 
@@ -45,5 +105,10 @@ export class GraphqlQueryComponent {
     this.skip = event.skip;
     const after = event.skip > 0 ? this.pageInfo.endCursor : null;
     this.executeQuery(after);
+  }
+
+  onQuerySelect(event: Event) {
+    const selectElement = event.target as HTMLSelectElement;
+    this.query = selectElement.value;
   }
 }
